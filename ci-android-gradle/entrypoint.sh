@@ -2,6 +2,13 @@
 
 set -e
 
-/etc/init.d/ssh start
+if [ $# -eq 0 ]; then
 
+/usr/sbin/sshd -D
+
+else
+
+/etc/init.d/ssh start
 exec "$@"
+
+fi
